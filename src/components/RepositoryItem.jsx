@@ -14,12 +14,15 @@ const RepositoryItem = (repository) => {
 			width: 66,
 			height: 58,
 		},
+		titleText: {
+			fontWeight: "bold"
+		}
 	});
 	
 	return (
 		<View>
-			<Image style={styles.logo} source={{uri: repositoryObject.ownerAvatarUrl}}/>
-			<Text>Full name: {repositoryObject.fullName}</Text>
+			<Image style={styles.logo} source={{ uri: repositoryObject.ownerAvatarUrl }}/>
+			<Text style={styles.titleText}>{repositoryObject.fullName}</Text>
 			<Text>Description: {repositoryObject.description}</Text>
 			<Text>Language: {repositoryObject.language}</Text>
 			<Text>Stars: {transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
