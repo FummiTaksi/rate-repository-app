@@ -16,6 +16,12 @@ const RepositoryItem = (repository) => {
 		},
 		titleText: {
 			fontWeight: "bold"
+		},
+		description: {
+			color: 'grey'
+		},
+		language: {
+			backgroundColor: 'blue'
 		}
 	});
 	
@@ -23,8 +29,8 @@ const RepositoryItem = (repository) => {
 		<View>
 			<Image style={styles.logo} source={{ uri: repositoryObject.ownerAvatarUrl }}/>
 			<Text style={styles.titleText}>{repositoryObject.fullName}</Text>
-			<Text>Description: {repositoryObject.description}</Text>
-			<Text>Language: {repositoryObject.language}</Text>
+			<Text style={styles.description}>{repositoryObject.description}</Text>
+			<Text style={styles.language}>{repositoryObject.language}</Text>
 			<Text>Stars: {transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
 			<Text>Forks: {transferNumberToThousands(repositoryObject.forksCount)}</Text>
 			<Text>Reviews: {repositoryObject.reviewCount}</Text>
