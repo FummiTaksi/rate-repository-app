@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text , Image, StyleSheet } from 'react-native';
 
 const RepositoryItem = (repository) => {
 	const repositoryObject = repository.repository;
-	console.log('repositoryObject', repositoryObject);
+	const styles = StyleSheet.create({
+		logo: {
+			width: 66,
+			height: 58,
+		},
+	});
+	
 	return (
 		<View>
+			<Image style={styles.logo} source={{uri: repositoryObject.ownerAvatarUrl}}/>
 			<Text>Full name: {repositoryObject.fullName}</Text>
 			<Text>Description: {repositoryObject.description}</Text>
 			<Text>Language: {repositoryObject.language}</Text>
