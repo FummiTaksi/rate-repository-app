@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text , Image, StyleSheet } from 'react-native';
-import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { Text , StyleSheet } from 'react-native';
+import { Card, Title, Paragraph } from 'react-native-paper';
+
+import RepositoryStatistic from './RepositoryStatistic';
 
 const transferNumberToThousands = (number) => {
 	const divided = number / 1000;
@@ -45,22 +47,26 @@ const RepositoryItem = (repository) => {
 				</Card.Content>
 			</Card.Content>
 			<Card.Content style={styles.rowContainer}>
-				<Card.Content style={styles.columnContainer}>
-					<Text>{transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
-					<Text>Stars</Text>
-				</Card.Content>
-				<Card.Content style={styles.columnContainer}>
-					<Text>{transferNumberToThousands(repositoryObject.forksCount)}</Text>
-					<Text>Forks</Text>
-				</Card.Content>		
-				<Card.Content style={styles.columnContainer}>
-					<Text>{repositoryObject.reviewCount}</Text>
-					<Text>Reviews</Text>
-				</Card.Content>			
-				<Card.Content style={styles.columnContainer}>
-					<Text>{repositoryObject.ratingAverage}</Text>
-					<Text>Rating</Text>
-				</Card.Content>					
+				<RepositoryStatistic
+					upText={transferNumberToThousands(repositoryObject.stargazersCount)}
+					downText={"Stars"}
+				>
+				</RepositoryStatistic>
+				<RepositoryStatistic
+					upText={transferNumberToThousands(repositoryObject.forksCount)}
+					downText={"Forks"}
+				>
+				</RepositoryStatistic>
+				<RepositoryStatistic
+					upText={repositoryObject.reviewCount}
+					downText={"Reviews"}
+				>
+				</RepositoryStatistic>
+				<RepositoryStatistic
+					upText={repositoryObject.ratingAverage}
+					downText={"Rating"}
+				>
+				</RepositoryStatistic>					
 			</Card.Content>
 		</Card>
 	);
