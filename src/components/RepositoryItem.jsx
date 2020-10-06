@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text , Image, StyleSheet } from 'react-native';
+import { Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 
 const transferNumberToThousands = (number) => {
 	const divided = number / 1000;
@@ -21,21 +22,33 @@ const RepositoryItem = (repository) => {
 			color: 'grey'
 		},
 		language: {
-			backgroundColor: 'blue'
+			color: 'white',
+			backgroundColor: 'blue',
+			alignSelf: 'flex-start'
+		},
+		rowContainer: {
+			flexDirection: 'row'
+		},
+		columnContainer: {
+			flexDirection: 'column'
 		}
 	});
 	
 	return (
-		<View>
-			<Image style={styles.logo} source={{ uri: repositoryObject.ownerAvatarUrl }}/>
-			<Text style={styles.titleText}>{repositoryObject.fullName}</Text>
-			<Text style={styles.description}>{repositoryObject.description}</Text>
-			<Text style={styles.language}>{repositoryObject.language}</Text>
+		<Card>
+			<Card.Content style={styles.rowContainer}>
+				<Card.Cover style={styles.logo} source={{ uri: repositoryObject.ownerAvatarUrl }}/>	
+				<Card.Content style={styles.columnContainer}>
+					<Title style={styles.titleText}>{repositoryObject.fullName}</Title>
+					<Paragraph style={styles.description}>{repositoryObject.description}</Paragraph>
+					<Text style={styles.language}>{repositoryObject.language}</Text>
+				</Card.Content>
+			</Card.Content>
 			<Text>Stars: {transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
 			<Text>Forks: {transferNumberToThousands(repositoryObject.forksCount)}</Text>
 			<Text>Reviews: {repositoryObject.reviewCount}</Text>
 			<Text>Rating: {repositoryObject.ratingAverage}</Text>
-		</View>
+		</Card>
 	);
 };
 
