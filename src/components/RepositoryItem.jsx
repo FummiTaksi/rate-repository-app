@@ -44,10 +44,24 @@ const RepositoryItem = (repository) => {
 					<Text style={styles.language}>{repositoryObject.language}</Text>
 				</Card.Content>
 			</Card.Content>
-			<Text>Stars: {transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
-			<Text>Forks: {transferNumberToThousands(repositoryObject.forksCount)}</Text>
-			<Text>Reviews: {repositoryObject.reviewCount}</Text>
-			<Text>Rating: {repositoryObject.ratingAverage}</Text>
+			<Card.Content style={styles.rowContainer}>
+				<Card.Content style={styles.columnContainer}>
+					<Text>{transferNumberToThousands(repositoryObject.stargazersCount)}</Text>
+					<Text>Stars</Text>
+				</Card.Content>
+				<Card.Content style={styles.columnContainer}>
+					<Text>{transferNumberToThousands(repositoryObject.forksCount)}</Text>
+					<Text>Forks</Text>
+				</Card.Content>		
+				<Card.Content style={styles.columnContainer}>
+					<Text>{repositoryObject.reviewCount}</Text>
+					<Text>Reviews</Text>
+				</Card.Content>			
+				<Card.Content style={styles.columnContainer}>
+					<Text>{repositoryObject.ratingAverage}</Text>
+					<Text>Rating</Text>
+				</Card.Content>					
+			</Card.Content>
 		</Card>
 	);
 };
