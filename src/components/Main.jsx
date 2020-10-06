@@ -21,12 +21,11 @@ const Main = () => {
       <AppBar/>
       <Switch>
         <Route path="/" exact>
-          <RepositoryList />
+        <RepositoryList/>
         </Route>
         <Route path="/signin" exact>
           <SignIn />
         </Route>
-        <Redirect to="/" />
       </Switch>
     </View>
   );

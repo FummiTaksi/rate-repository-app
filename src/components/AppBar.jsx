@@ -3,8 +3,8 @@ import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { Link } from 'react-router-native';
-import RepositoryList from './RepositoryList';
-import SignIn from './SignIn';
+import SignInTab from './SignInTab';
+import RepositoryTab from './RepositoryTab';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,20 +16,16 @@ const AppBar = () => {
 return (
   <View>
     <Appbar.Header style={styles.container}>
-    <TouchableWithoutFeedback>
-      <View>
-        <Appbar.Content title= "Repositories">
-          <Link to="/" component={RepositoryList} />
-        </Appbar.Content>
-      </View>
-      </TouchableWithoutFeedback>
       <TouchableWithoutFeedback>
-      <View>
-          <Appbar.Content title= "Sign in">
-            <Link to="/signin" component={SignIn} />
-          </Appbar.Content>
+        <View>
+          <Link to="/" component={RepositoryTab} />    
         </View>
       </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback>
+        <View>
+          <Link to="/signin" component={SignInTab}/>
+        </View>  
+      </TouchableWithoutFeedback>   
     </Appbar.Header>
   </View>
 );
