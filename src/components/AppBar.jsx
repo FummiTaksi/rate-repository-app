@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { Provider as PaperProvider } from 'react-native-paper';
+import { Appbar } from 'react-native-paper';
 
 import Constants from 'expo-constants';
 
@@ -13,7 +13,13 @@ const styles = StyleSheet.create({
 });
 
 const AppBarComponent = () => {
-return <View style={styles.container}><AppBar position="static"><Toolbar><Text>Repositories</Text></Toolbar></AppBar></View>;
+return (
+  <View style={styles.container}>
+    <Appbar.Header>
+      <Appbar.Content title= "Repositories"/>
+    </Appbar.Header>
+  </View>
+);
 };
 
 export default AppBarComponent;
