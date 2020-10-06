@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
-import { Provider as PaperProvider } from 'react-native-paper';
+import { View, StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import Constants from 'expo-constants';
