@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { Link } from 'react-router-native';
@@ -16,16 +16,12 @@ const AppBar = () => {
 return (
   <View>
     <Appbar.Header style={styles.container}>
-      <TouchableWithoutFeedback>
-        <View>
-          <Link to="/" component={RepositoryTab} />    
-        </View>
-      </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback>
-        <View>
-          <Link to="/signin" component={SignInTab}/>
-        </View>  
-      </TouchableWithoutFeedback>   
+          <Link to="/">
+            <RepositoryTab />
+          </Link>    
+          <Link to="/signin">
+            <SignInTab />
+          </Link>
     </Appbar.Header>
   </View>
 );
