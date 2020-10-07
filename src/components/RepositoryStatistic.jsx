@@ -1,6 +1,8 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Card } from 'react-native-paper';
+
+import Text from './Text';
 
 const RepositoryStatistic = ({upText, downText}) => {
 	const styles = StyleSheet.create({

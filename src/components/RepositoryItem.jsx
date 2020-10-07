@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text , StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { Card, Title, Paragraph } from 'react-native-paper';
 
 import RepositoryStatistic from './RepositoryStatistic';
+import Text from './Text';
 
 const transferNumberToThousands = (number) => {
 	const divided = number / 1000;
