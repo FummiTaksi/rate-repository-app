@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { Link } from 'react-router-native';
@@ -14,15 +14,17 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
 return (
-  <View>
-    <Appbar.Header style={styles.container}>
-          <Link to="/">
-            <RepositoryTab />
-          </Link>    
-          <Link to="/signin">
-            <SignInTab />
-          </Link>
-    </Appbar.Header>
+  <View style={styles.container}>
+    <ScrollView horizontal>
+      <Appbar.Header style={styles.container}>
+        <Link to="/">
+          <RepositoryTab />
+        </Link>    
+        <Link to="/signin">
+          <SignInTab />
+        </Link>
+      </Appbar.Header>
+    </ScrollView>
   </View>
 );
 };
