@@ -9,7 +9,6 @@ import useAuthorizedUser from '../hooks/useAuthorizedUser';
 const SignInComponentTab = () => {
 	const { data } = useAuthorizedUser();
 	if (data !== null) {
-		console.log('ei oo nullia.');
 		return (
 			<Link to="/signin">
 				<SignOutTab />
