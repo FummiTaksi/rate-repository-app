@@ -3,7 +3,7 @@ import { View, StyleSheet, ScrollView } from 'react-native';
 import { Appbar } from 'react-native-paper';
 
 import { Link } from 'react-router-native';
-import SignInTab from './SignInTab';
+import SignInComponentTab from './SignInComponentTab';
 import RepositoryTab from './RepositoryTab';
 
 const styles = StyleSheet.create({
@@ -20,9 +20,7 @@ return (
         <Link to="/">
           <RepositoryTab />
         </Link>    
-        <Link to="/signin">
-          <SignInTab />
-        </Link>
+        <SignInComponentTab />
       </Appbar.Header>
     </ScrollView>
   </View>
