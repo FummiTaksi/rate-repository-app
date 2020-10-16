@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-native';
-import { useApolloClient } from '@apollo/client';
 
 import SignOutTab from './SignOutTab';
 import SignInTab from './SignInTab';
-import { useAuthorizedUser, removeAuthorization } from '../hooks/useAuthorizedUser';
-
-const removeToken = async () => {
-	const apolloClient = useApolloClient();
-	apolloClient.resetStore();
-	await removeAuthorization();
-};
+import { useAuthorizedUser, useRemoveAuthorization } from '../hooks/useAuthorizedUser';
 
 const SignInComponentTab = () => {
 	const { data } = useAuthorizedUser();
-	if (data !== null) {
+	const [signedIn, setSignedIn] = useState(data !== null);
+	const [getAuthorizedUser] = useRemoveAuthorization();
+	const signOut = async () => {
+		await getAuthorizedUser();
+		setSignedIn(false);
+	};
+
+	if (signedIn) {
 		return (
-			<Link to="/signin" onPress={() => removeToken()}>
+			<Link to="/signin" onPress={() => signOut()}>
 				<SignOutTab />
 			</Link>
 		);
