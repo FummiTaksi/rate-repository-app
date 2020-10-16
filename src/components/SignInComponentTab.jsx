@@ -5,12 +5,12 @@ import { useApolloClient } from '@apollo/client';
 
 import SignOutTab from './SignOutTab';
 import SignInTab from './SignInTab';
-import {useAuthorizedUser, removeAuthorizedUser } from '../hooks/useAuthorizedUser';
+import { useAuthorizedUser, removeAuthorization } from '../hooks/useAuthorizedUser';
 
 const removeToken = async () => {
 	const apolloClient = useApolloClient();
 	apolloClient.resetStore();
-	await removeAuthorizedUser();
+	await removeAuthorization();
 };
 
 const SignInComponentTab = () => {
