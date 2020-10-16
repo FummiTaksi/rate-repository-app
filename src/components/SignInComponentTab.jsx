@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-native';
 
 import SignOutTab from './SignOutTab';
@@ -7,15 +6,20 @@ import SignInTab from './SignInTab';
 import { useAuthorizedUser, useRemoveAuthorization } from '../hooks/useAuthorizedUser';
 
 const SignInComponentTab = () => {
-	const { data } = useAuthorizedUser();
-	const [signedIn, setSignedIn] = useState(data !== null);
+	const { data, loading } = useAuthorizedUser();
+	if (loading || !data) {
+		return (
+			<Link to="/signin">
+				<SignInTab />
+			</Link>
+		);
+	}
 	const [getAuthorizedUser] = useRemoveAuthorization();
 	const signOut = async () => {
 		await getAuthorizedUser();
-		setSignedIn(false);
 	};
 
-	if (signedIn) {
+	if (data.authorizedUser !== null) {
 		return (
 			<Link to="/signin" onPress={() => signOut()}>
 				<SignOutTab />
